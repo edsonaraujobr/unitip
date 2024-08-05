@@ -1,0 +1,1 @@
+import { University } from "../models/university.models.js";
