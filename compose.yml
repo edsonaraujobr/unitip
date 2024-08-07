@@ -2,6 +2,13 @@ version: '3.8'
 
 services:
 
+  api:
+    build: ./
+    ports:
+      - "4444:4000"
+    depends_on:
+      - mysql
+
   mysql:
     image: mysql:8.0.36
     container_name: mysql-container

@@ -22,5 +22,5 @@ app.use(courseRouter);
 // app.use(courseUniversity);
 
 app.listen(port, () => {
-    console.log(`Executando na porta ${port}`)
+    console.log(`Executando aplicação`)
   })

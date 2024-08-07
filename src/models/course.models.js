@@ -18,5 +18,9 @@ export const Course = database.define('Courses',{
     field: {
         type: DataTypes.STRING(100),
         allowNull: false
+    },
+    type: {
+        type: DataTypes.STRING(100),
+        allowNull: false
     }
 });
