@@ -9,18 +9,22 @@ export const Course = database.define('Courses',{
     },
     name: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     duration: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true,
+        validate: {
+            min: 1
+        }
     },
     field: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: true
     },
     type: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: true
     }
 });

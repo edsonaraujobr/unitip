@@ -6,7 +6,7 @@ import courseRouter from "./routes/course.routes.js";
 // import courseSemester from "./routes/semester.routes.js";
 // import courseStudent from "./routes/student.routes.js";
 // import courseTip from "./routes/tip.routes.js";
-// import courseUniversity from "./routes/university.routes.js";
+import courseUniversity from "./routes/university.routes.js";
 
 const app = express();
 const port = 4000;
@@ -19,7 +19,7 @@ app.use(courseRouter);
 // app.use(courseSemester);
 // app.use(courseStudent);
 // app.use(courseTip);
-// app.use(courseUniversity);
+app.use(courseUniversity);
 
 app.listen(port, () => {
     console.log(`Executando aplicação`)

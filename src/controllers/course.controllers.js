@@ -3,11 +3,19 @@ import { Course } from "../models/course.models.js";
 export const createCourse = async (req, res) => {
     try {
         const { name, duration, field, type } = req.body;
-        if(!name || !duration || !field || !type)
-            return res.status(400).json({ messageError: "Falta parâmetros." });
+
+        const course = {};
+
+        if(!name)
+            return res.status(400).json({ messageError: "Falta parâmetro." });
+
+        course.name = name;
+        if(duration) course.duration = duration;
+        if(field) course.field = field;
+        if(type) course.type = type;
 
         await Course.sync();
-        await Course.create({name, duration, field,type});
+        await Course.create(course);
         return res.status(201).json({ messageSucess: "Curso criado com sucesso." });
     } catch (error) {
         return res.status(500).json({messageError: "Curso não criado."});
@@ -16,10 +24,10 @@ export const createCourse = async (req, res) => {
 
 export const getAllCourses = async (req,res) => {
     try {
-        const coursers = await Course.findAll();
-        if(!coursers)
+        const courses = await Course.findAll();
+        if(!courses)
             return res.status(400).json({ messageError: "Nenhum curso encontrado." });
-        return res.status(200).json({coursers});
+        return res.status(200).json({courses});
     } catch (error) {
         return res.status(500).json({messageError: "Não foi possível retornar os cursos"});
     }
@@ -36,17 +44,15 @@ export const updateCourse = async (req, res) => {
         if (field) updateFields.field = field;
         if (type) updateFields.type = type;
 
-        if (Object.keys(updateFields).length === 0) {
+        if (Object.keys(updateFields).length === 0) 
             return res.status(400).json({ messageError: "Nenhum parâmetro para atualizar." });
-        }
 
         const [updated] = await Course.update(updateFields, {
             where: { id },
         });
 
-        if (!updated) {
+        if (!updated) 
             return res.status(404).json({ messageError: "Curso não encontrado." });
-        }
 
         return res.status(200).json({messageSucess: "Curso atualizado com sucesso"});
     } catch (error) {
@@ -59,9 +65,8 @@ export const deleteCourse = async (req,res) => {
         const { id } = req.params;
         const course = await Course.findByPk(id);
 
-        if (!course) {
+        if (!course) 
             return res.status(404).json({ messageError: "Curso não encontrado." });
-        }
 
         await Course.destroy({
             where: { id },
