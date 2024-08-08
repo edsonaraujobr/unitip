@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { database } from '../database/connection.database.js';
 
-export const Student = database.define('Students',{
+export const Student = database.define('Students', {
     registration: {
         type: DataTypes.STRING(50),
         primaryKey: true,
