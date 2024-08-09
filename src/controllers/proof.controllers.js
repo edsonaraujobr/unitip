@@ -1,0 +1,1 @@
+import { Proof } from "../models/proof.models.js";

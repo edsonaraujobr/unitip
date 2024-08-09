@@ -1,0 +1,1 @@
+import { Tip } from "../models/tip.models.js";
