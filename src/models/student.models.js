@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { database } from '../database/connection.database.js';
+import { Course } from './course.models.js';
 
 export const Student = database.define('Students', {
     registration: {
@@ -35,7 +36,7 @@ export const Student = database.define('Students', {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
-            model: "Course",
+            model: Course,
             key: "id",
         },
     },
