@@ -1,11 +1,10 @@
-// controllers/matter.controller.js
 import { Matter } from "../models/matter.models.js";
 
 export const createMatter = async (req, res) => {
     try {
-        const { code, name, hours, level, idSemesters, idMattersTips, idMattersProofs } = req.body;
+        const { code, name, hours, level, idSemesters} = req.body;
 
-        if (!code || !name || !hours || !level || !idSemesters)
+        if (!code || !name || !hours || !idSemesters)
             return res.status(400).json({ messageError: "Falta parâmetro." });
 
         const matter = {
@@ -13,9 +12,7 @@ export const createMatter = async (req, res) => {
             name,
             hours,
             level,
-            idSemesters,
-            idMattersTips,
-            idMattersProofs
+            idSemesters
         };
 
         await Matter.sync();
@@ -40,15 +37,13 @@ export const getAllMatters = async (req, res) => {
 export const updateMatter = async (req, res) => {
     try {
         const { code } = req.params;
-        const { name, hours, level, idSemesters, idMattersTips, idMattersProofs } = req.body;
+        const { name, hours, level, idSemesters } = req.body;
 
         const updateFields = {};
         if (name) updateFields.name = name;
         if (hours) updateFields.hours = hours;
         if (level) updateFields.level = level;
         if (idSemesters) updateFields.idSemesters = idSemesters;
-        if (idMattersTips) updateFields.idMattersTips = idMattersTips;
-        if (idMattersProofs) updateFields.idMattersProofs = idMattersProofs;
 
         if (Object.keys(updateFields).length === 0)
             return res.status(400).json({ messageError: "Nenhum parâmetro para atualizar." });

@@ -40,6 +40,7 @@ export const Student = database.define('Students', {
             key: "id",
         },
     },
-
-
 });
+
+Course.hasMany(Student, { foreignKey: 'idCourses' });
+Student.belongsTo(Course, { foreignKey: 'idCourses' });
