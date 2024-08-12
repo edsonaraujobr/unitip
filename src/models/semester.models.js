@@ -1,7 +1,8 @@
 import { DataTypes } from 'sequelize';
 import { database } from '../database/connection.database.js';
+import { Course } from './course.models.js';
 
-export const Semester = database.define('Semester', {
+export const Semester = database.define('Semesters', {
   id: {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
@@ -14,15 +15,14 @@ export const Semester = database.define('Semester', {
   level: {
     type: DataTypes.STRING(100),
     allowNull: false,
-  }
+  },
+  idCourses: {
+    type: DataTypes.UUID,
+    allowNull: false,
+    references: {
+        model: Course,
+        key: "id",
+    },
+  },
 });
 
-
-(async () => {
-  try {
-    await database.sync();
-    console.log('Semester table has been created.');
-  } catch (error) {
-    console.error('Error creating table:', error);
-  }
-})();
