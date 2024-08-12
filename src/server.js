@@ -1,6 +1,6 @@
 import express from "express";
 import courseRouter from "./routes/course.routes.js";
-// import courseMatter from "./routes/matter.routes.js";
+import matterRouter from "./routes/matter.routes.js"; 
 import courseProfessor from "./routes/professor.routes.js";
 // import courseProof from "./routes/proof.routes.js";
 import courseSemester from "./routes/semester.routes.js";
@@ -13,7 +13,7 @@ const port = 4000;
 
 app.use(express.json());
 app.use(courseRouter);
-// app.use(courseMatter);
+app.use(matterRouter); 
 app.use(courseProfessor);
 // app.use(courseProof);
 app.use(courseSemester);
