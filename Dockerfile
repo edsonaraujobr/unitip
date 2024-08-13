@@ -14,4 +14,4 @@ RUN apk add --no-cache curl \
 
 EXPOSE 4000
 
-CMD ["dockerize", "-wait", "tcp://mysql-container:3306", "-timeout", "180s", "npm", "run", "dev"]
+CMD ["npm", "run", "dev"]
