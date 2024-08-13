@@ -9,7 +9,7 @@ services:
     depends_on:
       - mysql
     environment:
-      - DB_HOST=mysql-container
+      - DB_HOST=mysql
       - DB_NAME=universidade_do_bem
       - DB_USER=root
       - DB_PASSWORD=root
@@ -17,7 +17,7 @@ services:
 
   mysql:
     image: mysql:8.0.36
-    container_name: mysql-container
+    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
