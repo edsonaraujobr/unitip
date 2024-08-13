@@ -1,6 +1,6 @@
 ## 📋 Project
 
-Undefined is a RestFul API created with the purpose of helping college students by providing the necessary routes to create an application that provides tips.
+Unitip is a RestFul API created with the purpose of helping college students by providing the necessary routes to create an application that provides tips.
 <br>
 
 ## 💻 How to use
