@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 export const database = new Sequelize('universidade_do_bem', 'root', 'root', {
-    host: 'mysql',
+    host: 'mysql-container',
     dialect: 'mysql'
 });
 
