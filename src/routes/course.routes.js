@@ -3,9 +3,9 @@ import { createCourse, deleteCourse, getAllCourses, updateCourse } from "../cont
 
 const courseRouter = express.Router();
 
-courseRouter.post('/course', createCourse);
-courseRouter.get('/course', getAllCourses);
-courseRouter.delete('/course/:id', deleteCourse);
-courseRouter.put('/course/:id', updateCourse);
+courseRouter.post('/add/course', createCourse);
+courseRouter.get('/courses', getAllCourses);
+courseRouter.delete('/delete/course/:id', deleteCourse);
+courseRouter.put('/update/course/:id', updateCourse);
 
 export default courseRouter;

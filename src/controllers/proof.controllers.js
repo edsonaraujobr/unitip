@@ -2,15 +2,17 @@ import { Proof } from "../models/proof.models.js";
 
 export const createProof = async (req, res) => {
     try {
-        const { id, date, file } = req.body;
+        const { id, date, file, idMatters, idStudents } = req.body;
 
-        if (!date || !file)
-            return res.status(400).json({ messageError: "Falta parâmetro." });
+        if (!id || !file || idMatters || idStudents )
+            return res.status(400).json({ messageError: "Faltam parâmetros." });
 
         const proof = {
             id,
             date,
-            file
+            file,
+            idMatters,
+            idStudents
         };
 
         await Proof.sync();
@@ -35,11 +37,13 @@ export const getAllProofs = async (req, res) => {
 export const updateProof = async (req, res) => {
     try {
         const { id } = req.params;
-        const { date, file } = req.body;
+        const { date, file, idMatters, idStudents  } = req.body;
 
         const updateFields = {};
         if (date) updateFields.date = date;
         if (file) updateFields.file = file;
+        if (idMatters) updateFields.idMatters = idMatters;
+        if (idMaidStudentstters) updateFields.idStudents = idStudents;
 
         if (Object.keys(updateFields).length === 0)
             return res.status(400).json({ messageError: "Nenhum parâmetro para atualizar." });

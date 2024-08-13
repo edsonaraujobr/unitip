@@ -2,11 +2,11 @@ import { Course } from "../models/course.models.js";
 
 export const createCourse = async (req, res) => {
     try {
-        const { name, duration, field, type } = req.body;
+        const { name, duration, field, type, idUniversity } = req.body;
 
         const course = {};
 
-        if(!name)
+        if(!name || !idUniversity)
             return res.status(400).json({ messageError: "Falta parâmetro." });
 
         course.name = name;

@@ -25,7 +25,7 @@ export const Student = database.define('Students', {
         allowNull: false,
     },
     photo: {
-        type: DataTypes.STRING(),
+        type: DataTypes.BLOB,
         allowNull: true,
     },
     data_admission: {

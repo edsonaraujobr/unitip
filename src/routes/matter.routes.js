@@ -1,11 +1,11 @@
 import express from 'express';
-import { createMatter, getAllMatters, updateMatter, deleteMatter } from '../controllers/matter.controller.js';
+import { createMatter, getAllMatters, updateMatter, deleteMatter } from '../controllers/matter.controllers.js';
 
 const matterRouter = express.Router();
 
-matterRouter.post('/matters', createMatter);
+matterRouter.post('/add/matters', createMatter);
 matterRouter.get('/matters', getAllMatters);
-matterRouter.put('/matters/:code', updateMatter);
-matterRouter.delete('/matters/:code', deleteMatter);
+matterRouter.put('/delete/matters/:code', updateMatter);
+matterRouter.delete('/update/matters/:code', deleteMatter);
 
 export default matterRouter;

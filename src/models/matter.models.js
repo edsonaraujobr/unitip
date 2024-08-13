@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { database } from '../database/connection.js';
+import { database } from '../database/connection.database.js';
 import { Semester } from './semester.models.js'; 
 
 export const Matter = database.define('Matters', {
@@ -20,7 +20,7 @@ export const Matter = database.define('Matters', {
         allowNull: true,
     },
     idSemesters: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: Semester,

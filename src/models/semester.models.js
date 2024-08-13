@@ -26,3 +26,6 @@ export const Semester = database.define('Semesters', {
   },
 });
 
+Course.hasMany(Semester, { foreignKey: 'idCourses' });
+Semester.belongsTo(Course, { foreignKey: 'idCourses' });
+

@@ -3,9 +3,9 @@ import { createProof, deleteProof, getAllProofs, updateProof } from "../controll
 
 const courseProof = express.Router();
 
-courseProof.post('/proof', createProof);
-courseProof.get('/proof', getAllProofs);
-courseProof.delete('/proof/:id', deleteProof);
-courseProof.put('/proof/:id', updateProof);
+courseProof.post('/add/proof', createProof);
+courseProof.get('/proofs', getAllProofs);
+courseProof.delete('/delete/proof/:id', deleteProof);
+courseProof.put('/update/proof/:id', updateProof);
 
 export default courseProof;

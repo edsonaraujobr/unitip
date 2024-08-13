@@ -37,10 +37,6 @@ export const getAllProfessors = async (req, res) => {
 export const deleteProfessor = async (req, res) => {
   try {
     const { id } = req.params;
-    const professor = await Professor.findByPk(id);
-
-    if (!professor)
-      return res.status(404).json({ messageError: "Professor não encontrado." });
 
     await Professor.destroy({
       where: { id },

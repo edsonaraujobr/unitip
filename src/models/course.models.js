@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import { database } from '../database/connection.database.js';
+import { University } from './university.models.js';
 
 export const Course = database.define('Courses',{
     id: {
@@ -26,5 +27,16 @@ export const Course = database.define('Courses',{
     type: {
         type: DataTypes.STRING(100),
         allowNull: true
+    },
+    idUniversities: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references: {
+            model: University,
+            key: 'id',
+        },
     }
 });
+
+Course.belongsTo(University, { foreignKey: 'idUniversities' });
+University.hasMany(Course, { foreignKey: 'idUniversities' } )

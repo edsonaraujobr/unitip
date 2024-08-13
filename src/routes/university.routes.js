@@ -3,9 +3,9 @@ import { createUniversity, deleteUniversity, getAllUniversities, updateUniversit
 
 const universityRouter = express.Router();
 
-universityRouter.post('/university', createUniversity);
-universityRouter.get('/university', getAllUniversities);
-universityRouter.delete('/university/:id', deleteUniversity);
-universityRouter.put('/university/:id', updateUniversity);
+universityRouter.post('/add/university', createUniversity);
+universityRouter.get('/universities', getAllUniversities);
+universityRouter.delete('/delete/university/:id', deleteUniversity);
+universityRouter.put('/update/university/:id', updateUniversity);
 
 export default universityRouter;
