@@ -5,8 +5,6 @@ export const database = new Sequelize('universidade_do_bem', 'root', 'root', {
     dialect: 'mysql'
 });
 
-await new Promise(resolve => setTimeout(resolve, 120000));
-
 try {
     await database.authenticate();
     console.log('Connection has been established successfully.');
