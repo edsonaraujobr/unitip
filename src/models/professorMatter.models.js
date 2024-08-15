@@ -13,7 +13,7 @@ export const ProfessorMatter = database.define('ProfessorMatters', {
         },
     },
     matterId: {
-        type: DataTypes.UUID,
+        type: DataTypes.STRING(100),
         allowNull: false,
         references: {
             model: Matter,

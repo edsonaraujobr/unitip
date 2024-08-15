@@ -36,11 +36,12 @@ export const getAllTips = async (req,res) => {
 export const updateTip = async (req, res) => {
     try {
         const { id } = req.params;
-        const {  tittle, date, tip } = req.body;
+        const {  tittle, tip, idMatters, idStudents } = req.body;
 
         const updateFields = {};
         if (tittle) updateFields.tittle = tittle;
-        if (date) updateFields.date = date;
+        if (idStudents) updateFields.idStudents = idStudents;
+        if (idMatters) updateFields.idMatters = idMatters;
         if (tip) updateFields.tip = tip;
 
         if (Object.keys(updateFields).length === 0) 
