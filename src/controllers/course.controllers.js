@@ -30,7 +30,7 @@ export const getAllCourses = async (req,res) => {
             return res.status(400).json({ messageError: "Nenhum curso encontrado." });
         return res.status(200).json({courses});
     } catch (error) {
-        return res.status(500).json({messageError: "Não foi possível retornar os cursos"});
+        return res.status(500).json({messageError: "Não foi possível retornar os cursos", error});
     }
 }
 
@@ -57,7 +57,7 @@ export const updateCourse = async (req, res) => {
 
         return res.status(200).json({messageSucess: "Curso atualizado com sucesso"});
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não atualizado."});
+        return res.status(500).json({messageError: "Curso não atualizado.", error});
     }
 }
 
@@ -74,7 +74,7 @@ export const deleteCourse = async (req,res) => {
           });
         return res.status(200).json({messageSuccess: 'Curso deletado com sucesso'})
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não deletado."});
+        return res.status(500).json({messageError: "Curso não deletado.", error});
     }
 
 }

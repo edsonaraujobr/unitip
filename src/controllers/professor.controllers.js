@@ -19,7 +19,7 @@ export const createProfessor = async (req, res) => {
       .status(201)
       .json({ messageSuccess: "Professor cadastrado com sucesso." });
   } catch (error) {
-    return res.status(500).json({ messageError: "Professor não cadastrado." });
+    return res.status(500).json({ messageError: "Professor não cadastrado." , error});
   }
 };
 
@@ -30,7 +30,7 @@ export const getAllProfessors = async (req, res) => {
       return res.status(404).json({ messageError: "Nenhum professor encontrado." });
     return res.status(200).json({ professors });
   } catch (error) {
-    return res.status(500).json({ messageError: "Não foi possível retornar os professores." });
+    return res.status(500).json({ messageError: "Não foi possível retornar os professores.", error });
   }
 };
 
@@ -43,7 +43,7 @@ export const deleteProfessor = async (req, res) => {
     });
     return res.status(200).json({ messageSuccess: "Professor deletado com sucesso." });
   } catch (error) {
-    return res.status(500).json({ messageError: "Professor não deletado." });
+    return res.status(500).json({ messageError: "Professor não deletado." , error });
   }
 };
 
@@ -70,6 +70,6 @@ export const updateProfessor = async (req, res) => {
     const updatedProfessor = await Professor.findByPk(id);
     return res.status(200).json({ messageSuccess: "Professor atualizado com sucesso." });
   } catch (error) {
-    return res.status(500).json({ messageError: "Professor não atualizado." });
+    return res.status(500).json({ messageError: "Professor não atualizado." , error });
   }
 };

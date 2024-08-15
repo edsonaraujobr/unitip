@@ -19,7 +19,7 @@ export const createMatter = async (req, res) => {
         await Matter.create(matter);
         return res.status(201).json({ messageSuccess: "Matéria criada com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Matéria não criada." });
+        return res.status(500).json({ messageError: "Matéria não criada." , error});
     }
 }
 
@@ -30,7 +30,7 @@ export const getAllMatters = async (req, res) => {
             return res.status(400).json({ messageError: "Nenhuma matéria encontrada." });
         return res.status(200).json({ matters });
     } catch (error) {
-        return res.status(500).json({ messageError: "Não foi possível retornar as matérias." });
+        return res.status(500).json({ messageError: "Não foi possível retornar as matérias." , error});
     }
 }
 
@@ -57,7 +57,7 @@ export const updateMatter = async (req, res) => {
 
         return res.status(200).json({ messageSuccess: "Matéria atualizada com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Matéria não atualizada." });
+        return res.status(500).json({ messageError: "Matéria não atualizada.", error });
     }
 }
 
@@ -74,6 +74,6 @@ export const deleteMatter = async (req, res) => {
         });
         return res.status(200).json({ messageSuccess: 'Matéria deletada com sucesso.' });
     } catch (error) {
-        return res.status(500).json({ messageError: "Matéria não deletada." });
+        return res.status(500).json({ messageError: "Matéria não deletada." , error});
     }
 }

@@ -18,7 +18,7 @@ export const createTip = async (req, res) => {
         await Tip.create(tipObject);
         return res.status(201).json({ messageSucess: "Dica criado com sucesso." });
     } catch (error) {
-        return res.status(500).json({messageError: "Dica não criado."});
+        return res.status(500).json({messageError: "Dica não criado.", error});
     }
 }
 
@@ -29,7 +29,7 @@ export const getAllTips = async (req,res) => {
             return res.status(400).json({ messageError: "Nenhuma dica encontrada." });
         return res.status(200).json({tips});
     } catch (error) {
-        return res.status(500).json({messageError: "Não foi possível retornar as dicas"});
+        return res.status(500).json({messageError: "Não foi possível retornar as dicas", error});
     }
 }
 
@@ -55,7 +55,7 @@ export const updateTip = async (req, res) => {
 
         return res.status(200).json({messageSucess: "Dica atualizado com sucesso"});
     } catch (error) {
-        return res.status(500).json({messageError: "Dica não atualizado."});
+        return res.status(500).json({messageError: "Dica não atualizado.", error});
     }
 }
 
@@ -72,7 +72,7 @@ export const deleteTip = async (req,res) => {
           });
         return res.status(200).json({messageSuccess: 'Dica deletado com sucesso'})
     } catch (error) {
-        return res.status(500).json({messageError: "Dica não deletado."});
+        return res.status(500).json({messageError: "Dica não deletado.", error});
     }
 
 }

@@ -18,7 +18,7 @@ export const createProof = async (req, res) => {
         await Proof.create(proof);
         return res.status(201).json({ messageSuccess: "Prova criada com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Prova não criada." });
+        return res.status(500).json({ messageError: "Prova não criada.", error });
     }
 };
 
@@ -29,7 +29,7 @@ export const getAllProofs = async (req, res) => {
             return res.status(400).json({ messageError: "Nenhuma prova encontrada." });
         return res.status(200).json({ proofs });
     } catch (error) {
-        return res.status(500).json({ messageError: "Não foi possível retornar as provas." });
+        return res.status(500).json({ messageError: "Não foi possível retornar as provas." , error });
     }
 };
 
@@ -56,7 +56,7 @@ export const updateProof = async (req, res) => {
 
         return res.status(200).json({ messageSuccess: "Prova atualizada com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Prova não atualizada." });
+        return res.status(500).json({ messageError: "Prova não atualizada." , error });
     }
 };
 
@@ -73,6 +73,6 @@ export const deleteProof = async (req, res) => {
         });
         return res.status(200).json({ messageSuccess: 'Prova deletada com sucesso.' });
     } catch (error) {
-        return res.status(500).json({ messageError: "Prova não deletada." });
+        return res.status(500).json({ messageError: "Prova não deletada.", error });
     }
 };

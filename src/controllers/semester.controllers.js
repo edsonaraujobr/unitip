@@ -19,7 +19,7 @@ export const createSemester = async (req, res) => {
         await Semester.create(semester);
         return res.status(201).json({ messageSuccess: "Semestre criado com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Semestre não criado." });
+        return res.status(500).json({ messageError: "Semestre não criado.", error });
     }
 }
 
@@ -32,7 +32,7 @@ export const getAllSemesters = async (req, res) => {
         }
         return res.status(200).json({ semesters });
     } catch (error) {
-        return res.status(500).json({ messageError: "Não foi possível retornar os semestres." });
+        return res.status(500).json({ messageError: "Não foi possível retornar os semestres." , error});
     }
 }
 
@@ -61,7 +61,7 @@ export const updateSemester = async (req, res) => {
         return res.status(200).json({ messageSuccess: "Semestre atualizado com sucesso." });
 
     } catch (error) {
-        return res.status(500).json({ messageError: "Semestre não atualizado." });
+        return res.status(500).json({ messageError: "Semestre não atualizado." , error});
     }
 }
 
@@ -80,6 +80,6 @@ export const deleteSemester = async (req, res) => {
 
         return res.status(200).json({ messageSuccess: 'Semestre deletado com sucesso.' });
     } catch (error) {
-        return res.status(500).json({ messageError: "Semestre não deletado." });
+        return res.status(500).json({ messageError: "Semestre não deletado.", error });
     }
 }

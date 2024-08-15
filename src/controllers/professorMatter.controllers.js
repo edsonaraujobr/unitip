@@ -16,7 +16,7 @@ export const addProfessorToMatter = async (req, res) => {
 
         return res.status(201).json({messageSuccess: "Relação criada com sucesso!"});
     } catch (error) {
-        return res.status(500).json({ messageError: "Não foi possível criar a relação" });
+        return res.status(500).json({ messageError: "Não foi possível criar a relação" , error});
     }
 };
 
@@ -34,7 +34,7 @@ export const removeProfessorFromMatter = async (req, res) => {
             return res.status(404).json({ messageError: 'Relação não encontrada' });
         }
     } catch (error) {
-        return res.status(500).json({ messageError: "Erro ao buscar relação" });
+        return res.status(500).json({ messageError: "Erro ao buscar relação", error });
     }
 };
 
@@ -48,7 +48,7 @@ export const getMattersForProfessor = async (req, res) => {
 
         return res.status(200).json(matters);
     } catch (error) {
-        return res.status(500).json({ messageError: "Erro ao buscar relações" });
+        return res.status(500).json({ messageError: "Erro ao buscar relações", error });
     }
 };
 
@@ -62,7 +62,7 @@ export const getProfessorsForMatter = async (req, res) => {
 
         return res.status(200).json(professors);
     } catch (error) {
-        return res.status(500).json({ messageError: "Erro ao buscar relações" });
+        return res.status(500).json({ messageError: "Erro ao buscar relações", error });
     }
 };
 
@@ -73,6 +73,6 @@ export const getAllProfessorsMatters = async (req,res) => {
             return res.status(400).json({ messageError: "Nenhum relação encontrada." });
         return res.status(200).json({data});
     } catch (error) {
-        return res.status(500).json({messageError: "Não foi possível retornar as relações"});
+        return res.status(500).json({messageError: "Não foi possível retornar as relações", error});
     }
 }
