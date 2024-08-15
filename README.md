@@ -39,9 +39,18 @@ Professors who teach at this university
 Method | Description | endpoint
 ---|---|---
 `POST`| Create professor | `/add/professor`
-* Read all professors: `/professors`
-* Update professor: `/update/professor`
-* Remove professor: `/remove/professor`
+`GET`| Read all professors | `/professors`
+`PUT`| Read all professors | `/update/professor`
+`DELETE`| Read all professors | `/delete/professor`
+
+* Body
+  ```bash
+  {
+     "name": "example",
+     "email": "example@gmail.com",
+     "stars": 5
+  }
+  ```
 
 ### Courses
 
