@@ -37,8 +37,9 @@ You can acess endpoints through [Postman](https://postman.com/) using the api-un
 Professors who teach at this university
 
 * Create professor: `/add/professor`
-/add/professor
-
+* Read all professors: `/professors`
+* Update professor: `/update/professor`
+* Remove professor: `/remove/professor`
 
 ### Courses
 
