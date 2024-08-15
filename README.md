@@ -3,7 +3,7 @@
 Unitip is a RestFul API created with the purpose of helping college students by providing the necessary routes to create an application that provides tips.
 <br>
 
-## 💻 How to use
+## 💻 How to install?
 
 To clone and run this application you need to have [Git](https://git-scm.com) and [Docker](https://www.docker.com/) installed on your computer
 
@@ -22,7 +22,15 @@ $ docker compose down -v
 ```
 <br>
 
-To access the endpoints I recommend using the [Postman](https://postman.com/) 
+Done, now you can acess the endpoints locally with http://localhost:4444
+
+## 💻 How to acess endpoints without installing?
+
+You can acess endpoints through [Postman](https://postman.com/) using the api-unit.onrender.com/
+
+
+<br>
+
 
 ## 👨‍💻 Technologies
 
