@@ -28,9 +28,20 @@ Done, now you can acess the endpoints locally with http://localhost:4444
 
 You can acess endpoints through [Postman](https://postman.com/) using the api-unit.onrender.com/
 
-
 <br>
 
+## 💻 Entities
+
+### Professors
+
+Professors who teach at this university
+
+### Courses
+
+Existing courses at this university
+
+
+<br>
 
 ## 👨‍💻 Technologies
 
