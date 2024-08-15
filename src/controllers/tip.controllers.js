@@ -2,18 +2,17 @@ import { Tip } from "../models/tip.models.js";
 
 export const createTip = async (req, res) => {
     try {
-        const { id, tittle, date, tip } = req.body;
+        const { tittle, tip, idMatters, idStudents } = req.body;
 
         const tipObject = {};
 
-        if(!id || tittle || tip )
+        if(!tittle || !tip || !idMatters || !idStudents )
             return res.status(400).json({ messageError: "Falta parâmetro." });
 
-        tipObject.id = id;
         tipObject.tittle = tittle;
         tipObject.tip = tip;
-
-        if(date) tipObject.date = date;
+        tipObject.idMatters = idMatters;
+        tipObject.idStudents = idStudents;
 
         await Tip.sync();
         await Tip.create(tipObject);
@@ -40,41 +39,40 @@ export const updateTip = async (req, res) => {
         const {  tittle, date, tip } = req.body;
 
         const updateFields = {};
-        if (name) updateFields.name = name;
-        if (duration) updateFields.duration = duration;
-        if (field) updateFields.field = field;
-        if (type) updateFields.type = type;
+        if (tittle) updateFields.tittle = tittle;
+        if (date) updateFields.date = date;
+        if (tip) updateFields.tip = tip;
 
         if (Object.keys(updateFields).length === 0) 
             return res.status(400).json({ messageError: "Nenhum parâmetro para atualizar." });
 
-        const [updated] = await Course.update(updateFields, {
+        const [updated] = await Tip.update(updateFields, {
             where: { id },
         });
 
         if (!updated) 
-            return res.status(404).json({ messageError: "Curso não encontrado." });
+            return res.status(404).json({ messageError: "Dica não encontrado." });
 
-        return res.status(200).json({messageSucess: "Curso atualizado com sucesso"});
+        return res.status(200).json({messageSucess: "Dica atualizado com sucesso"});
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não atualizado."});
+        return res.status(500).json({messageError: "Dica não atualizado."});
     }
 }
 
 export const deleteTip = async (req,res) => {
     try {
         const { id } = req.params;
-        const course = await Course.findByPk(id);
+        const tip = await Tip.findByPk(id);
 
-        if (!course) 
-            return res.status(404).json({ messageError: "Curso não encontrado." });
+        if (!tip) 
+            return res.status(404).json({ messageError: "Dica não encontrado." });
 
-        await Course.destroy({
+        await Tip.destroy({
             where: { id },
           });
-        return res.status(200).json({messageSuccess: 'Curso deletado com sucesso'})
+        return res.status(200).json({messageSuccess: 'Dica deletado com sucesso'})
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não deletado."});
+        return res.status(500).json({messageError: "Dica não deletado."});
     }
 
 }

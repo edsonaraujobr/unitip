@@ -10,6 +10,7 @@ export const createCourse = async (req, res) => {
             return res.status(400).json({ messageError: "Falta parâmetro." });
 
         course.name = name;
+        course.idUniversity = idUniversity
         if(duration) course.duration = duration;
         if(field) course.field = field;
         if(type) course.type = type;
@@ -18,7 +19,7 @@ export const createCourse = async (req, res) => {
         await Course.create(course);
         return res.status(201).json({ messageSucess: "Curso criado com sucesso." });
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não criado."});
+        return res.status(500).json({messageError: "Curso não criado.", error});
     }
 }
 

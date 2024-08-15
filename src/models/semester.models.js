@@ -9,12 +9,15 @@ export const Semester = database.define('Semesters', {
     primaryKey: true,
   },
   period: {
-    type: DataTypes.STRING(100),
+    type: DataTypes.INTEGER,
     allowNull: false,
+    validate: {
+      min: 1
+    },
   },
   level: {
     type: DataTypes.STRING(100),
-    allowNull: false,
+    allowNull: true,
   },
   idCourses: {
     type: DataTypes.UUID,

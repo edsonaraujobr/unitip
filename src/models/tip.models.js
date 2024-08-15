@@ -9,10 +9,6 @@ export const Tip = database.define('Tips',{
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4
     },
-    date: {
-        type: DataTypes.DATE,
-        allowNull: true
-    },
     tittle: {
         type: DataTypes.STRING(100),
         allowNull: false,
@@ -23,6 +19,7 @@ export const Tip = database.define('Tips',{
     },
     idMatters: {
         type: DataTypes.STRING(100),
+        allowNull: false,
         references: {
             model: Matter,
             key: "code",
@@ -30,6 +27,7 @@ export const Tip = database.define('Tips',{
     },
     idStudents: {
         type: DataTypes.STRING(50),
+        allowNull: false,
         references: {
             model: Student,
             key: "registration",

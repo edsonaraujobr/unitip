@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize";
 
-export const database = new Sequelize('universidade_do_bem', 'root', 'root', {
-    host: 'mysql',
-    dialect: 'mysql'
+export const database = new Sequelize({
+    dialect: 'sqlite',
+    storage: "./database.sqlite"
 });
 
 try {

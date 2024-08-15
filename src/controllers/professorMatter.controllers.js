@@ -44,7 +44,6 @@ export const getMattersForProfessor = async (req, res) => {
 
         const matters = await ProfessorMatter.findAll({
             where: { professorId },
-            include: Matter 
         });
 
         return res.status(200).json(matters);
@@ -59,7 +58,6 @@ export const getProfessorsForMatter = async (req, res) => {
 
         const professors = await ProfessorMatter.findAll({
             where: { matterId },
-            include: Professor
         });
 
         return res.status(200).json(professors);
@@ -67,3 +65,14 @@ export const getProfessorsForMatter = async (req, res) => {
         return res.status(500).json({ messageError: "Erro ao buscar relações" });
     }
 };
+
+export const getAllProfessorsMatters = async (req,res) => {
+    try {
+        const data = await ProfessorMatter.findAll();
+        if(!data)
+            return res.status(400).json({ messageError: "Nenhum relação encontrada." });
+        return res.status(200).json({data});
+    } catch (error) {
+        return res.status(500).json({messageError: "Não foi possível retornar as relações"});
+    }
+}

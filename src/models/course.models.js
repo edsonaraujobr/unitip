@@ -28,7 +28,7 @@ export const Course = database.define('Courses',{
         type: DataTypes.STRING(100),
         allowNull: true
     },
-    idUniversities: {
+    idUniversity: {
         type: DataTypes.UUID,
         allowNull: false,
         references: {
@@ -38,5 +38,5 @@ export const Course = database.define('Courses',{
     }
 });
 
-Course.belongsTo(University, { foreignKey: 'idUniversities' });
-University.hasMany(Course, { foreignKey: 'idUniversities' } )
+Course.belongsTo(University, { foreignKey: 'idUniversity' });
+University.hasMany(Course, { foreignKey: 'idUniversity' } )

@@ -4,7 +4,7 @@ export const createStudent = async (req, res) => {
     try {
         const { registration, full_name, email, password, photo, date_admission, idCourses } = req.body;
 
-        if (!registration || !full_name || !email || !password || !date_admission || !idCourses) {
+        if (!registration || !full_name || !email || !password || !idCourses) {
             return res.status(400).json({ messageError: "Faltam parâmetros." });
         }
 

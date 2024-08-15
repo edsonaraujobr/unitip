@@ -2,18 +2,17 @@ import { Semester } from "../models/semester.models.js";
 
 export const createSemester = async (req, res) => {
     try {
-        const { id, period, level, idCourses } = req.body;
+        const { period, level, idCourses } = req.body;
 
 
-        if (!id  || !idCourses) {
+        if (!period  || !idCourses) {
             return res.status(400).json({ messageError: "Faltam parâmetros." });
         }
 
         const semester = {
-            id,
             period,
             level,
-            idCourses,
+            idCourses
         };
 
         await Semester.sync();

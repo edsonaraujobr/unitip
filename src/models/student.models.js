@@ -30,7 +30,7 @@ export const Student = database.define('Students', {
     },
     data_admission: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
     },
     idCourses: {
         type: DataTypes.UUID,

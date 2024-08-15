@@ -3,9 +3,9 @@ import { createMatter, getAllMatters, updateMatter, deleteMatter } from '../cont
 
 const matterRouter = express.Router();
 
-matterRouter.post('/add/matters', createMatter);
+matterRouter.post('/add/matter', createMatter);
 matterRouter.get('/matters', getAllMatters);
-matterRouter.put('/delete/matters/:code', updateMatter);
-matterRouter.delete('/update/matters/:code', deleteMatter);
+matterRouter.put('/update/matter/:code', updateMatter);
+matterRouter.delete('/delete/matter/:code', deleteMatter);
 
 export default matterRouter;

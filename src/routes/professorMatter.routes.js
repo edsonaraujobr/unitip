@@ -1,11 +1,12 @@
 import express from 'express';
-import { addProfessorToMatter, removeProfessorFromMatter, getMattersForProfessor, getProfessorsForMatter } from '../controllers/professorMatter.controller.js';
+import { addProfessorToMatter, removeProfessorFromMatter, getAllProfessorsMatters,  getMattersForProfessor, getProfessorsForMatter } from '../controllers/professorMatter.controllers.js';
 
 const professorMatterRouter = express.Router();
 
 professorMatterRouter.post('/add/professorMatter', addProfessorToMatter);
-professorMatterRouter.delete('/remove/professorMatter', removeProfessorFromMatter);
+professorMatterRouter.delete('/delete/professorMatter', removeProfessorFromMatter);
 professorMatterRouter.get('/professor/:professorId/matters', getMattersForProfessor);
 professorMatterRouter.get('/matter/:matterId/professors', getProfessorsForMatter);
+professorMatterRouter.get('/professorMatters', getAllProfessorsMatters)
 
 export default professorMatterRouter;
