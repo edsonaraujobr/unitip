@@ -36,10 +36,25 @@ You can acess endpoints through [Postman](https://postman.com/) using the api-un
 
 Professors who teach at this university
 
+* Create professor
+/add/professor
+
+
 ### Courses
 
 Existing courses at this university
 
+### Universities
+
+University where the student studies
+
+### Semesters
+
+Existing Semesters at this course
+
+### Matters
+
+Existing Semesters at this course
 
 <br>
 
