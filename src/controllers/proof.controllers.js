@@ -2,13 +2,12 @@ import { Proof } from "../models/proof.models.js";
 
 export const createProof = async (req, res) => {
     try {
-        const { id, date, file, idMatters, idStudents } = req.body;
+        const { date, file, idMatters, idStudents } = req.body;
 
-        if (!id || !file || idMatters || idStudents )
+        if ( !file || !idMatters || !idStudents )
             return res.status(400).json({ messageError: "Faltam parâmetros." });
 
         const proof = {
-            id,
             date,
             file,
             idMatters,
@@ -19,7 +18,7 @@ export const createProof = async (req, res) => {
         await Proof.create(proof);
         return res.status(201).json({ messageSuccess: "Prova criada com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Prova não criada." });
+        return res.status(500).json({ messageError: "Prova não criada." ,error});
     }
 };
 
@@ -30,7 +29,7 @@ export const getAllProofs = async (req, res) => {
             return res.status(400).json({ messageError: "Nenhuma prova encontrada." });
         return res.status(200).json({ proofs });
     } catch (error) {
-        return res.status(500).json({ messageError: "Não foi possível retornar as provas." });
+        return res.status(500).json({ messageError: "Não foi possível retornar as provas.",error });
     }
 };
 
@@ -43,7 +42,7 @@ export const updateProof = async (req, res) => {
         if (date) updateFields.date = date;
         if (file) updateFields.file = file;
         if (idMatters) updateFields.idMatters = idMatters;
-        if (idMaidStudentstters) updateFields.idStudents = idStudents;
+        if (idStudents) updateFields.idStudents = idStudents;
 
         if (Object.keys(updateFields).length === 0)
             return res.status(400).json({ messageError: "Nenhum parâmetro para atualizar." });
@@ -57,7 +56,7 @@ export const updateProof = async (req, res) => {
 
         return res.status(200).json({ messageSuccess: "Prova atualizada com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Prova não atualizada." });
+        return res.status(500).json({ messageError: "Prova não atualizada.",error });
     }
 };
 
@@ -74,6 +73,6 @@ export const deleteProof = async (req, res) => {
         });
         return res.status(200).json({ messageSuccess: 'Prova deletada com sucesso.' });
     } catch (error) {
-        return res.status(500).json({ messageError: "Prova não deletada." });
+        return res.status(500).json({ messageError: "Prova não deletada." ,error});
     }
 };

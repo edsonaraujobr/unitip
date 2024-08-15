@@ -4,7 +4,7 @@ export const createStudent = async (req, res) => {
     try {
         const { registration, full_name, email, password, photo, date_admission, idCourses } = req.body;
 
-        if (!registration || !full_name || !email || !password || !date_admission || !idCourses) {
+        if (!registration || !full_name || !email || !password || !idCourses) {
             return res.status(400).json({ messageError: "Faltam parâmetros." });
         }
 
@@ -22,7 +22,7 @@ export const createStudent = async (req, res) => {
         await Student.create(student);
         return res.status(201).json({ messageSucess: "Estudante criado com sucesso." });
     } catch (error) {
-        return res.status(500).json({ messageError: "Estudante não criado." });
+        return res.status(500).json({ messageError: "Estudante não criado." , error});
     }
 }
 
@@ -33,7 +33,7 @@ export const getAllStudents = async (req, res) => {
             return res.status(400).json({ messageError: "Nenhum estudante encontrado." });
         return res.status(200).json({ students });
     } catch (error) {
-        return res.status(500).json({ messageError: "Não foi possível retornar os estudantes." });
+        return res.status(500).json({ messageError: "Não foi possível retornar os estudantes." , error });
     }
 }
 
@@ -63,7 +63,7 @@ export const updateStudent = async (req, res) => {
         return res.status(200).json({ messageSucess: "Estudante atualizado com sucesso" });
 
     } catch (error) {
-        return res.status(500).json({ messageError: "Estudante não atualizado." });
+        return res.status(500).json({ messageError: "Estudante não atualizado.", error });
     }
 }
 
@@ -81,6 +81,6 @@ export const deleteStudent = async (req, res) => {
         });
         return res.status(200).json({ messageSuccess: 'Estudante deletado com sucesso' })
     } catch (error) {
-        return res.status(500).json({ messageError: "Estudante não deletado." });
+        return res.status(500).json({ messageError: "Estudante não deletado.", error });
     }
 }

@@ -8,12 +8,9 @@ services:
       - "4444:4000"
     depends_on:
       - mysql
-    networks:
-      - mynetwork
     
   mysql:
     image: mysql:8.0.36
-    container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
@@ -26,5 +23,3 @@ services:
       timeout: 5s
       retries: 5
       
-networks:
-  mynetwork:

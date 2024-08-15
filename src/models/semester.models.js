@@ -14,7 +14,7 @@ export const Semester = database.define('Semesters', {
   },
   level: {
     type: DataTypes.STRING(100),
-    allowNull: false,
+    allowNull: true,
   },
   idCourses: {
     type: DataTypes.UUID,

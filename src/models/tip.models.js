@@ -9,10 +9,6 @@ export const Tip = database.define('Tips',{
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4
     },
-    date: {
-        type: DataTypes.DATE,
-        allowNull: true
-    },
     tittle: {
         type: DataTypes.STRING(100),
         allowNull: false,

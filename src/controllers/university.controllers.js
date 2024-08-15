@@ -21,7 +21,7 @@ export const createUniversity = async (req, res) => {
         await University.create(university);
         return res.status(201).json({ messageSucess: "Universidade criada com sucesso." });
     } catch (error) {
-        return res.status(500).json({messageError: "Universidade não criada."});
+        return res.status(500).json({messageError: "Universidade não criada.", error});
     }
 }
 
@@ -32,7 +32,7 @@ export const getAllUniversities = async (req,res) => {
             return res.status(400).json({ messageError: "Nenhuma universidade encontrada." });
         return res.status(200).json({universities});
     } catch (error) {
-        return res.status(500).json({messageError: "Não foi possível retornar as universidades"});
+        return res.status(500).json({messageError: "Não foi possível retornar as universidades", error});
     }
 }
 
@@ -61,7 +61,7 @@ export const updateUniversity = async (req, res) => {
 
         return res.status(200).json({messageSucess: "Universidade atualizada com sucesso"});
     } catch (error) {
-        return res.status(500).json({messageError: "Universidade não atualizada."});
+        return res.status(500).json({messageError: "Universidade não atualizada.", error});
     }
 }
 
@@ -78,7 +78,7 @@ export const deleteUniversity = async (req,res) => {
           });
         return res.status(200).json({messageSuccess: 'Universidade deletada com sucesso'})
     } catch (error) {
-        return res.status(500).json({messageError: "Universidade não deletada."});
+        return res.status(500).json({messageError: "Universidade não deletada.", error});
     }
 
 }

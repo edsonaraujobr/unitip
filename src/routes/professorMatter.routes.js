@@ -1,5 +1,5 @@
 import express from 'express';
-import { addProfessorToMatter, removeProfessorFromMatter, getMattersForProfessor, getProfessorsForMatter } from '../controllers/professorMatter.controller.js';
+import { addProfessorToMatter, removeProfessorFromMatter, getMattersForProfessor, getProfessorsForMatter } from '../controllers/professorMatter.controllers.js';
 
 const professorMatterRouter = express.Router();
 

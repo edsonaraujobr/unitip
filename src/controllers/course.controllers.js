@@ -10,6 +10,7 @@ export const createCourse = async (req, res) => {
             return res.status(400).json({ messageError: "Falta parâmetro." });
 
         course.name = name;
+        course.idUniversity = idUniversity;
         if(duration) course.duration = duration;
         if(field) course.field = field;
         if(type) course.type = type;
@@ -18,7 +19,7 @@ export const createCourse = async (req, res) => {
         await Course.create(course);
         return res.status(201).json({ messageSucess: "Curso criado com sucesso." });
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não criado."});
+        return res.status(500).json({messageError: "Curso não criado.",error});
     }
 }
 
@@ -29,7 +30,7 @@ export const getAllCourses = async (req,res) => {
             return res.status(400).json({ messageError: "Nenhum curso encontrado." });
         return res.status(200).json({courses});
     } catch (error) {
-        return res.status(500).json({messageError: "Não foi possível retornar os cursos"});
+        return res.status(500).json({messageError: "Não foi possível retornar os cursos",error});
     }
 }
 
@@ -56,7 +57,7 @@ export const updateCourse = async (req, res) => {
 
         return res.status(200).json({messageSucess: "Curso atualizado com sucesso"});
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não atualizado."});
+        return res.status(500).json({messageError: "Curso não atualizado.",error});
     }
 }
 
@@ -73,7 +74,7 @@ export const deleteCourse = async (req,res) => {
           });
         return res.status(200).json({messageSuccess: 'Curso deletado com sucesso'})
     } catch (error) {
-        return res.status(500).json({messageError: "Curso não deletado."});
+        return res.status(500).json({messageError: "Curso não deletado.",error});
     }
 
 }
