@@ -47,9 +47,9 @@ Method | Description | endpoint
 * Body
   ```bash
   {
-     "name": "example",
-     "email": "example@gmail.com",
-     "stars": 5
+     "name": STRING,
+     "email": STRING,
+     "stars": INTEGER
   }
   ```
 
@@ -67,11 +67,11 @@ Method | Description | endpoint
 * Body
   ```bash
   {
-    "name": "example",
-    "idUniversity": "xxxxxxxxxxxxxxxxxx",
-    "duration": 8,
-    "field": "example",
-    "type": "example"
+    "name": STRING,
+    "idUniversity": UUID,
+    "duration": INTEGER,
+    "field": STRING,
+    "type": STRING
   }
   ```
 
@@ -89,12 +89,12 @@ Method | Description | endpoint
 * Body
   ```bash
   {
-    "name": "example",
-    "email": "example@gmail.com",
-    "city": "example",
-    "state": "example",
-    "street": "example",
-    "neighborhood": "example"
+    "name": STRING,
+    "email": STRING,
+    "city": STRING,
+    "state": STRING,
+    "street": STRING,
+    "neighborhood": STRING
   }
   ```
 
@@ -112,9 +112,9 @@ Method | Description | endpoint
 * Body
   ```bash
   {
-    "period": 8,
-    "level": "example",
-    "idCourses": "xxxxxxxxxxxxxx"
+    "period": INTEGER,
+    "level": STRING,
+    "idCourses": UUID
   }
   ```
 
@@ -132,11 +132,99 @@ Method | Description | endpoint
 * Body
   ```bash
   {
-    "code": "xxxxxxxx",
-    "name": "example",
-    "hours": 60,
-    "level": "example",
-    "idSemesters": "xxxxxxxxx"
+    "code": STRING,
+    "name": STRING,
+    "hours": INTEGER,
+    "level": STRING,
+    "idSemesters": UUID
+  }
+  ```
+
+### Student
+
+User acessing application
+
+Method | Description | endpoint
+---|---|---
+`POST`| Create student | `/add/student`
+`GET`| Read all students | `/students`
+`PUT`| Update student | `/update/student/:registration`
+`DELETE`| Delete student | `/delete/student/:registration`
+
+* Body
+  ```bash
+  {
+    "registration": STRING,
+    "full_name": STRING,
+    "email": STRING,
+    "password": STRING,
+    "idCourses": UUID,
+    "date_admission": DATE,
+    "photo": BLOB,
+    "idCourses": UUID
+  }
+  ```
+
+### Tip
+
+Tip written by student
+
+Method | Description | endpoint
+---|---|---
+`POST`| Create tip | `/add/tip`
+`GET`| Read all tips | `/tips`
+`PUT`| Update tip | `/update/tip/:id`
+`DELETE`| Delete tip | `/delete/tip/:id`
+
+* Body
+  ```bash
+  {
+    "tittle": STRING,
+    "date": DATE,
+    "tip": TEXT,
+    "idMatters": STRING,
+    "idStudents": STRING
+  }
+  ```
+
+### Proof
+
+Proof made by student
+
+Method | Description | endpoint
+---|---|---
+`POST`| Create proof | `/add/proof`
+`GET`| Read all proofs | `/proofs`
+`PUT`| Update proof | `/update/proof/:id`
+`DELETE`| Delete proof | `/delete/proof/:id`
+
+* Body
+  ```bash
+  {
+    "date": DATE,
+    "tip": TEXT,
+    "file": BLOB
+    "idMatters": STRING,
+    "idStudents": STRING
+  }
+  ```
+### ProfessorMatter
+
+Subjects a teacher teaches
+
+Method | Description | endpoint
+---|---|---
+`POST`| Create professorMatter | `/add/professorMatter`
+`GET`| Read all professorMatters | `/professorMatters`
+`GET`| Read all matter from a professor | `/professor/:professorId/matters`
+`GET`| Read all professor from a matter | `/matterr/:matterId/professors`
+`DELETE`| Delete professorMatter | `/delete/professorMatter`
+
+* Body
+  ```bash
+  {
+    "professorId": UUID,
+    "matterId": STRING
   }
   ```
 
