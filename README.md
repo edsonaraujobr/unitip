@@ -120,7 +120,7 @@ Method | Description | endpoint
 
 ### Matters
 
-Existing Semesters at this course
+Existing matters at this semester
 
 Method | Description | endpoint
 ---|---|---
@@ -203,7 +203,7 @@ Method | Description | endpoint
   {
     "date": DATE,
     "tip": TEXT,
-    "file": BLOB
+    "file": BLOB,
     "idMatters": STRING,
     "idStudents": STRING
   }
