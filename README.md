@@ -36,7 +36,7 @@ You can acess endpoints through [Postman](https://postman.com/) using the api-un
 
 Professors who teach at this university
 
-* Create professor
+* Create professor: `/add/professor`
 /add/professor
 
 
