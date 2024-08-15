@@ -27,7 +27,7 @@ Done, now you can acess the endpoints locally with http://localhost:4444
 
 ## 💻 How to acess endpoints without installing?
 
-You can acess endpoints through [Postman](https://postman.com/) using this [link](api-unit.onrender.com/)
+You can acess endpoints through [Postman](https://postman.com/) using api-unit.onrender.com/
 
 <br>
 
